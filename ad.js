@@ -1,9 +1,4 @@
-window.onload = function ()
-{
-    $("#addToList").click(addTask);
-}
-
-var addTask = function()
+function add_to_list()
 {
     var task = $("#get_entered_text").val();
     
@@ -11,6 +6,7 @@ var addTask = function()
     
     $("#get_entered_text").val("");
 }
+
 
 
 /*
