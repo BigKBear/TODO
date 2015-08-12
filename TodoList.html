@@ -8,14 +8,18 @@
             <title>To Do </title>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
             </head>
-    
-    
     <body>
         
         <h2>Todo List </h2>
         
-        <input type="text" id="get-entered-text" name="task"></input>
-        <button onclick="add_to_list()" type="button" id="addToList"> Add </button> <br>
+        <input type="text" id="get-entered-text" name="task" onkeyup="Mimic()"></input>
+        <input type="text" id="get-entered-text2" name="taskclone1"></input>
+        <input type="text" id="get-entered-text3" name="taskclone2"></input>
+        
+                <input type="text" id="get-entered-text4" name="taskclone3" readonly></input>
+        
+        <button onclick="addToList()" type="button" id="addToList"> Add </button> <br>
         <ol id="dunamicaly-added-items"> </ol>
+        
     </body>
 </html>
