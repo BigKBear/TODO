@@ -11,9 +11,8 @@ function add_to_list()
     //var task = $("#get_entered_text").val();
     var task = document.getElementById("get_entered_text").value;
     
-    $("#dunamicaly_added_items").append("<div>"+task+" <button type='button'> Edit </button><button type='button'> Delete </button> </div><br>")
+    $("#dunamicaly-added-items").append("<li> <input type='checkbox'>"+task+" <button type='button'> Edit </button><button type='button'> Delete </button> </input></li><br>")
     
-    $("#get_entered_text").val("");
 }
 
 
