@@ -13,7 +13,7 @@
 /*
  model
  */
-var listItem = { name:" ", selected:false};
+var listItem = { name:"", selected:false};
 
 /*
  controler
@@ -30,11 +30,7 @@ function addToList()
 
 
 var mimic = function(e) {
-    var newValue = e.target.value;
-    
-    for(var i=0; i<same.length; i++){
-        same[i].value = newValue;
-    }
+    listItem.name = e.target.value;
 }
 
 
