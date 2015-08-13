@@ -2,24 +2,22 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-            
-            <script src="ad.js"></script>
-            
             <title>To Do </title>
-            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+            <script
+                src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
+                           
+                </script>
             </head>
     <body>
         
         <h2>Todo List </h2>
         
-        <input type="text" id="get-entered-text" name="task" onkeyup="Mimic()"></input>
-        <input type="text" id="get-entered-text2" name="taskclone1"></input>
-        <input type="text" id="get-entered-text3" name="taskclone2"></input>
+        <input type="text" class="same" name="task" ></input>
+        <input type="text" class="same" name="taskclone1"></input>
+        <input type="text" class="same" name="taskclone2"></input>
         
-                <input type="text" id="get-entered-text4" name="taskclone3" readonly></input>
-        
-        <button onclick="addToList()" type="button" id="addToList"> Add </button> <br>
+        <button onclick="addToList()" type="button" id="add-to-list"> Add </button> <br>
         <ol id="dunamicaly-added-items"> </ol>
-        
+        <script src="ad.js"></script>
     </body>
 </html>
