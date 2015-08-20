@@ -1,21 +1,39 @@
+<!--
+ Kyle St.Hill
+ Learning about
+ 
+ 
+ 
+ Angular JS will happen in this tag ng-app is a directive it is used only once to bootstrap the application-->
 <!DOCTYPE html>
-<html ng-app="Todo-app"><!--Angular JS will happen in this tag-->
+<html ng-app="Todo-app">
     <head>
         <meta charset="UTF-8">
             <title>To Do </title>
             <script
                 type="text/javascript"
-                src="ap.js">
-                           
-            </script>
-    </head>
+                src="ad.js">
+                </script>
+            </head>
     <body>
         <script
             type="text/javascript"
             src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js">
-        </script>
+            </script>
         
         <h2>Todo List </h2>
+        <div ng-controller="MainController">
+            <!--Below will print out using the below template-->
+           <!-- <div ng-repeat="element in myarr">
+                {{element}}
+                
+            </div>-->
+           <div ng-repeat="user in users">
+               <strong>{{user.name}}</strong>:{{user.age}}
+           </div>
+            
+            
+        </div>
         
     </body>
 </html>
