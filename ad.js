@@ -25,7 +25,7 @@
  - Dissect the source
  */
 
-angular.module('Todo-app', []);
+angular.module('TodoApp', []);
 
 
 
