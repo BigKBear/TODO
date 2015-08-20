@@ -37,12 +37,12 @@ angular.module('Todo-app', []);
 /*
  controler
  */
-{ app.controller('MainController', function($scope))
+{app.controller('MainController', function($scope))
     {
         $scope.myarr =[1,2,3,4,5]
         
         $scope.users = [{name:"Kyle", age:23},{name:"Ced", age:34},{name:"Reid", age:45}]
-    }})
+    }}
 
 
 
