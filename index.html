@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html data-ng-app="">
+<head>
+	<title>Using Angular JS Directives and Data Binding</title>
+</head>
+
+<body data-ng-init="todos=[
+	{name: 'Wash Dishes', isDone:'false'},
+	{name: ' Put clothes in Machine', isDone:'false'},
+	{name: 'Cook Food', isDone:'false'},
+	{name: 'Clean Bath', isDone:'false'},
+	{name: 'Hangout Clothes', isDone:'false'}
+	]">
+
+Search <input type="text" data-ng-model="name" />
+
+	<ul>
+		<li data-ng-repeat="todo in todos | filter:name"><input type="checkbox"></input>{{ todo.name }} - {{ todo.isDone}} <button>delete</button></li>
+		<!--Filters by the name properity that is in our model-->
+	</ul>
+	<br/>
+
+<input type="text" data-ng-model="add" /><button>Add</button>
+<!--
+	<table>
+		<tr>
+			<td>check</td>
+			<td>Name</td>
+			<td>Status</td>
+			<td>delete</td>
+		</tr>
+		<tr data-ng-repeat="toget in todos">
+			<td><input type="checkbox"></input></td>
+			<td>{{} toget.name }}</td>
+			<td>{{ toget.isDone}} </td>
+			<td><button>delete</button></td>
+		</tr>
+	</table>
+-->
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+</body>
+</html>
