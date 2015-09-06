@@ -1,44 +1,67 @@
 <!DOCTYPE html>
-<html data-ng-app="">
+<html>
 <head>
 	<title>Using Angular JS Directives and Data Binding</title>
 </head>
 
-<body data-ng-init="todos=[
-	{name: 'Wash Dishes', isDone:'false'},
-	{name: ' Put clothes in Machine', isDone:'false'},
-	{name: 'Cook Food', isDone:'false'},
-	{name: 'Clean Bath', isDone:'false'},
-	{name: 'Hangout Clothes', isDone:'false'}
-	]">
-
-Search <input type="text" data-ng-model="name" />
-
+<body ng-app="todoapp">
+<div ng-controller="TodosCtrl">
+	<h1>ToDo App</h1>
+			Search by:<br/>
+			<input placeholder="name" type="text" ng-model="search.name">
+			<br/>
+			<input placeholder="status" type="text" ng-model="searchtwo.isDone">
+			<br/>
+			<input placeholder="object model" type="text" ng-model="searchfour.$">
 	<ul>
 		<li data-ng-repeat="todo in todos | filter:name"><input type="checkbox"></input>{{ todo.name }} - {{ todo.isDone}} <button>delete</button></li>
 		<!--Filters by the name properity that is in our model-->
 	</ul>
 	<br/>
 
+	<table>
+				<tr>
+					<td><strong>Name</strong></td>
+					<td><strong>Status</strong></td>
+				</tr>
+				<tr ng-repeat="todo in todos.list | filter:search | filter:searchtwo | filter:searchthree | filter:searchfour">
+					<td><input type="checkbox"></input></td>
+					<td>{{todo.name}}</td>
+					<td>{{todo.isDone}}</td>
+					<td><button>delete</button></td>
+				</tr>
+			</table>
+
 <input type="text" data-ng-model="add" /><button>Add</button>
 <!--
-	<table>
-		<tr>
-			<td>check</td>
-			<td>Name</td>
-			<td>Status</td>
-			<td>delete</td>
-		</tr>
-		<tr data-ng-repeat="toget in todos">
-			<td><input type="checkbox"></input></td>
-			<td>{{} toget.name }}</td>
-			<td>{{ toget.isDone}} </td>
-			<td><button>delete</button></td>
-		</tr>
-	</table>
+	<!DOCTYPE html>
+<html>
+	<head>
+		<title> AngularJS Tutorials </title>
+		<link rel="stylesheet" href="vendor/foundation/foundation.min.css">
+	</head>
+	<body  ng-app="myApp">
+		<div ng-controller="ItemsCtrl">
+			<h1>Filtering data</h1>
+			<input placeholder="name" type="text" ng-model="search.name">
+			<input placeholder="chracter" type="text" ng-model="searchtwo.chracter">
+			<input placeholder="complete" type="text" ng-model="searchthree.complete">
+			<input placeholder="object model" type="text" ng-model="searchfour.$">
+			<table>
+				<tr>
+					<td><strong>Name</strong></td>
+					<td><strong>Chracter</strong></td>
+					<td><strong>Status</strong></td>
+				</tr>
+				<tr ng-repeat="item in items.list | filter:search | filter:searchtwo | filter:searchthree | filter:searchfour">
+					<td>{{item.name}}</td>
+					<td>{{item.chracter}}</td>
+					<td>{{item.complete}}</td>
+				</tr>
+			</table>
 -->
 
-
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
 </body>
 </html>
