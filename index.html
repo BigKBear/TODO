@@ -10,11 +10,11 @@
 
 			Search by:
 			<br/>
-				<input placeholder="name" type="text" ng-model="search.name">
+				<input placeholder="name" type="text" ng-model="searchtodobyname.name">
 			<br/>
-				<input placeholder="status" type="text" ng-model="searchtwo.isDone">
+				<input placeholder="status" type="text" ng-model="searchtodosbystatus.isDone">
 			<br/>
-				<input placeholder="object model" type="text" ng-model="searchfour.$">
+				<input placeholder="object model" type="text" ng-model="searchallcolumns.$">
 			<ul>
 				<li data-ng-repeat="todo in todos | filter:name"><input type="checkbox"></input>{{ todo.name }} - {{ todo.isDone}} <button>delete</button></li>
 				<!--Filters by the name properity that is in our model-->
@@ -27,7 +27,7 @@
 						<td><strong>Status</strong></td>
 				</tr>
 					
-				<tr ng-repeat="todo in todos.list | filter:search | filter:searchtwo | filter:searchthree | filter:searchfour">
+				<tr ng-repeat="todo in todos | filter:searchtodobyname | filter:searchtodosbystatus | filter:searchallcolumns">
 						<td><input type="checkbox"></input></td>
 						<td>{{todo.name}}</td>
 						<td>{{todo.isDone}}</td>
@@ -37,6 +37,7 @@
 
 			<input type="text" data-ng-model="add" /><button>Add</button>
 	
+
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
 	</body>
