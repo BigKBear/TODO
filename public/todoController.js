@@ -1,5 +1,5 @@
-angular.module("todoapp").controller('TodoController',['$scope', '$http', function($scope,$http){
-	$scope.todos = [];
+angular.module("todoapp").controller('TodoController',['$scope', function($scope,$http){
+	//$scope.todos = [];
 	//var todoId=1;
 
 	$http.get('https://sheltered-shore-4406.herokuapp.com/api/todos/').success(function(todoData){
