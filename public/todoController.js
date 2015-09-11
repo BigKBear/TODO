@@ -1,50 +1,21 @@
-
-angular.module("todoapp").controller('TodoController', function($scope, TodoService){
+angular.module("todoapp").controller('TodoController',['$scope', '$http', function($scope,$http){
 	$scope.todos = [];
+	//var todoId=1;
+
+	$http.get('https://sheltered-shore-4406.herokuapp.com/api/todos/').success(function(todoData){
+		$scope.todos = todoData;
+	});
+
+	$scope.addTodo = function(){
+		$http.post('https://sheltered-shore-4406.herokuapp.com/api/todos/',{name:$scope.addtodo,isDone:false})
+	};
 	
-	TodoService.getAllTodos().then(function (data) {
-		$scope.todos = data.data;
-		console.log($scope.todos);
-		console.log(data.data);
-	});//we should not now be getting the data the data should already been here "route resolve"
-
-	$scope.addTodo= function(){
-		if(!$scope.addtodo) {
-			console.log("you did not enter a todo");
-			return false;
-		} 
-
-		$scope.todos.push({
-			name:$scope.addtodo,
-			isDone:false
-		});
-		$scope.addtodo="";
-	};
-/*
-	$scope.deleteTodo= function(index){
-		$scope.todos.splice($scope.todos.indexOf(index));	
-		console.log("deleted");
-	};*/
-
-	// Get Total Items
-	$scope.getTotalTodos= function () {
-	    return $scope.todos.length;
+	$scope.deleteTodo = function(todoId) {
+		$http.delete( 'https://sheltered-shore-4406.herokuapp.com/api/todos/',{_id:$scope.todoId})
 	};
 
-	// Get Total Checked Items
-	$scope.getTotalCheckedTodos = function () {
-		var doneNumber = 0;
-	    for (var i = 0; i < $scope.todos.length; i++) {
-	    	if ($scope.todos[i].isDone) {
-	    		doneNumber++;
-	    	}
-	    };
-	    return doneNumber;
+	$scope.updateTodo = function(todoId){
+		$http.put('https://sheltered-shore-4406.herokuapp.com/api/todos/',{name:$scope.addtodo,isDone:false})
 	};
-
-	// Change false to true
-	$scope.toggleChecked = function (todo) {
-		console.log(todo.isDone);
-	    todo.isDone = !todo.isDone;
-	};
-});
+}]);
+//console.log($scope.todos);
