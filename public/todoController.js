@@ -1,4 +1,4 @@
-/*
+
 angular.module("todoapp").controller('TodoController', function($scope, TodoService){
 	$scope.todos = [];
 	
@@ -20,11 +20,11 @@ angular.module("todoapp").controller('TodoController', function($scope, TodoServ
 		});
 		$scope.addtodo="";
 	};
-
+/*
 	$scope.deleteTodo= function(index){
 		$scope.todos.splice($scope.todos.indexOf(index));	
 		console.log("deleted");
-	};
+	};*/
 
 	// Get Total Items
 	$scope.getTotalTodos= function () {
@@ -48,15 +48,3 @@ angular.module("todoapp").controller('TodoController', function($scope, TodoServ
 	    todo.isDone = !todo.isDone;
 	};
 });
-*/
-
-angular.module("todoapp").controller('TodoController',['$scope', '$http', function($scope,$http){
-	$scope.todos = [];
-	var todoId=1;
-
-	$http.get('https://sheltered-shore-4406.herokuapp.com/api/todos/').success(function(todoData){
-		$scope.todos = todoData;
-		console.log($scope.todos);
-	});
-}]);
-
