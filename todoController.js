@@ -14,5 +14,6 @@ todoapp.controller('getAllController', function($scope,todoService){
 		console.log(response);
 		$scope.todos = response;
 		console.log($scope.todos);
+		console.log($scope.todo);
 	)
 })*/
