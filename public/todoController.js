@@ -1,4 +1,4 @@
-angular.module("todoapp").controller('TodoController',['$scope', function($scope,$http){
+angular.module("todoapp").controller('TodoController',['$scope', '$http', function($scope,$http){
 	//$scope.todos = [];
 	//var todoId=1;
 
