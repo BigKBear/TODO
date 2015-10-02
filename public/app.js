@@ -1,8 +1,13 @@
 var todoapp = angular.module("todoapp",[]);
 /*
-.controller(function(routeProvider), $locationProvider){
+.config(function(routeProvider), $locationProvider){
 	//here is routing code for implementing routing
 	$routeProvider
+	.when('/',{
+		redirectTo: function(){
+			return '/home';
+		}
+	})
 	.when('/home',{
 		templateURL:'/index.html',
 		controller:'todoController'
