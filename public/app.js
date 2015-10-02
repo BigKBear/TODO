@@ -1,4 +1,8 @@
-var todoapp = angular.module("todoapp",[]);
+var todoapp = angular.module("todoapp",[])
+
+.run(function ($rootScope){
+	$rootScope.endPoint = 'https://sheltered-shore-4406.herokuapp.com/api/todos/'
+});
 /*
 .controller(function(routeProvider), $locationProvider){
 	//here is routing code for implementing routing
