@@ -9,9 +9,11 @@ todoapp.controller('getAllController', function($scope,todoService){
 		console.log($scope.todos);
 	}
 	/*
+	
 	$http.get('tododata.json').success(function(response){
 		console.log(response);
 		$scope.todos = response;
 		console.log($scope.todos);
+		console.log($scope.todo);
 	)
 })*/
