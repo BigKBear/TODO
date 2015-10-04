@@ -1,13 +1,30 @@
-var todoapp = angular.module("todoapp",[]);
+var todoapp = angular
+.module("todoapp",[])
+
+.config(function(){
+	// $routeProvider.when('/',{
+	// 	templateURL:'Views/about.html',
+	// 	controller:'TodoController'
+	// })
+	// .otherwise({
+	// 	redirecTo:'/'
+	// });
+})
+.value("endPoint", "https://sheltered-shore-4406.herokuapp.com/api/todos/")
+
+/*.constant("myConfig",{
+	"url": "https://sheltered-shore-4406.herokuapp.com/api/todos/"
+})*/
+
 /*
-.config(function(routeProvider), $locationProvider){
+
+.run(function ($rootScope){
+	$rootScope.endPoint = 'https://sheltered-shore-4406.herokuapp.com/api/todos/'
+});
+
+.controller(function(routeProvider), $locationProvider){
 	//here is routing code for implementing routing
 	$routeProvider
-	.when('/',{
-		redirectTo: function(){
-			return '/home';
-		}
-	})
 	.when('/home',{
 		templateURL:'/index.html',
 		controller:'todoController'

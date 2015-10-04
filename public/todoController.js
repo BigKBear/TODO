@@ -1,15 +1,12 @@
 angular.module("todoapp").controller('TodoController', function($scope,TodoService){
-	//$scope.todos = [];
-	//var todoId=1;
-	
+	//$modal is part of angular bootstrap model like a jquary model is is not only for http request
 
 	$scope.init = function(){
 		$scope.getAll();
 	}
 
-	TodoService.getAllTodos();
 
-	$scope.getAllTodos = function(){
+	$scope.getAll = function(){
 		TodoService.getAllTodos()
 		.then(function(res){
 			//success
@@ -19,18 +16,30 @@ angular.module("todoapp").controller('TodoController', function($scope,TodoServi
 	};
 
 	$scope.addTodo = function(){
-		TodoService.addTodo();
-		TodoService.getAllTodos();
+		TodoService.addTodo()
+		.then(function(res){
+			//success
+		},function(err){
+			//error
+		});
 	};
 	
 	$scope.deleteTodo = function(todoId) {
-		TodoService.deleteTodo(todoId);
-		TodoService.getAllTodos();
+		TodoService.deleteTodo(todoId)
+		.then(function(res){
+			//success
+		},function(err){
+			//error
+		});
 	};
 
 	$scope.updateTodo = function(todoId,olddata){
-		TodoService.updateTodo(todoId,olddata);
-		TodoService.getAllTodos();
+		TodoService.updateTodo(todoId,olddata)
+		.then(function(res){
+			//success
+		},function(err){
+			//error
+		});
 	};
 
 	$scope.init();
