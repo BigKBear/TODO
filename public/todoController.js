@@ -1,21 +1,38 @@
-angular.module("todoapp").controller('TodoController',['$scope', 'TodoService' function($scope,TodoService){
+angular.module("todoapp").controller('TodoController', function($scope,TodoService){
 	//$scope.todos = [];
 	//var todoId=1;
+	
+
+	$scope.init = function(){
+		$scope.getAll();
+	}
 
 	TodoService.getAllTodos();
 
+	$scope.getAllTodos = function(){
+		TodoService.getAllTodos()
+		.then(function(res){
+			//success
+		},function(err){
+			//error
+		});
+	};
+
 	$scope.addTodo = function(){
-		$http.post('https://sheltered-shore-4406.herokuapp.com/api/todos/',{name:$scope.addtodo,isDone:false})
+		TodoService.addTodo();
+		TodoService.getAllTodos();
 	};
 	
 	$scope.deleteTodo = function(todoId) {
-		console.log($scope.todos[todoId]._id);
-		$http.delete('https://sheltered-shore-4406.herokuapp.com/api/todos/'+ $scope.todos[todoId]._id,{todoId})
+		TodoService.deleteTodo(todoId);
+		TodoService.getAllTodos();
 	};
 
-	$scope.updateTodo = function(todoId){
-		$http.put('https://sheltered-shore-4406.herokuapp.com/api/todos/',{name:$scope.addtodo,isDone:false})
+	$scope.updateTodo = function(todoId,olddata){
+		TodoService.updateTodo(todoId,olddata);
+		TodoService.getAllTodos();
 	};
-}]);
 
+	$scope.init();
+});
 //console.log($scope.todos);

@@ -29,12 +29,14 @@
 
 			<ul>
 				<li data-ng-repeat="todo in todos | filter:name" ng-class="{crossTodo: todo.isDone}" >
-					<input type="checkbox" ng-click="toggleChecked(todo)" /><input ng-click="updateTodo"updateTodo" type="text" value='{{ todo.name }} - {{todo.isDone}}' /><button ng-click="deleteTodo($index)">delete</button>
+					<input type="checkbox" ng-click="toggleChecked(todo)" />
+					<input type="text"  value="{{ todo.name  }} - {{todo.isDone}}" />
+					<button ng-click="deleteTodo($index)">Delete</button>
+					<button ng-click="updateTodo($index,todo)">Save</button>
 				</li>
 				<!--Filters by the name properity that is in our model-->
 			</ul>
 			<br/>
-			
 		</div>
 	</body>
 </html>
