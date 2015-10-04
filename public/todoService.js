@@ -28,7 +28,10 @@ angular.module('todoapp')
 	TodoService.addTodo = function(TodoService){
 		var defer = $q.defer();
 
-		$http.post(endPoint + '/{', TodoService,+ '}')
+		console.log(defer);
+		console.log(TodoService);
+		console.log(TodoService.addtodo);
+		/*$http.post(endPoint + ':name'+TodoService)
 		.success(function(todoData){
 			//success
 			defer.resolve(todoData);
@@ -36,7 +39,7 @@ angular.module('todoapp')
 		.error(function(err, status){
 			//error
 			defer.reject(err);
-		})
+		})*/
 
 		return defer.promise;
 	}

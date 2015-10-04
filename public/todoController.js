@@ -10,13 +10,14 @@ angular.module("todoapp").controller('TodoController', function($scope,TodoServi
 		TodoService.getAllTodos()
 		.then(function(res){
 			//success
+			
 		},function(err){
 			//error
 		});
 	};
 
 	$scope.addTodo = function(){
-		TodoService.addTodo()
+		TodoService.addTodo($scope)
 		.then(function(res){
 			//success
 		},function(err){
