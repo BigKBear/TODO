@@ -1,14 +1,15 @@
-<!DOCTYPE html>
-<html>
+<html ng-app="todoapp">
 	<head>
 		<title>Using Angular JS Directives and Data Binding</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+		<script type="text/javascript" src="todoController.js"></script>
+		<script type="text/javascript" src="todoService.js"></script>
 	</head>
 
-	<body ng-app="todoapp">
-		<div ng-controller="TodosCtrl">
+	<body >
+		<div class="todoContainer" ng-controller="getAllController">
 			<h1>ToDo App</h1>
-
-			Search by:
+			Search:
 			<br/>
 				<input placeholder="name" type="text" ng-model="searchtodobyname.name">
 			<br/>
@@ -20,25 +21,7 @@
 				<!--Filters by the name properity that is in our model-->
 			</ul>
 			<br/>
-
-			<table>
-				<tr>
-						<td><strong>Name</strong></td>
-						<td><strong>Status</strong></td>
-				</tr>
-					
-				<tr ng-repeat="todo in todos | filter:searchtodobyname | filter:searchtodosbystatus | filter:searchallcolumns">
-						<td><input type="checkbox"></input></td>
-						<td>{{todo.name}}</td>
-						<td>{{todo.isDone}}</td>
-						<td><button>delete</button></td>
-				</tr>
-			</table>
-
 			<input type="text" data-ng-model="add" /><button>Add</button>
-	
-
 		</div>
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
 	</body>
 </html>
