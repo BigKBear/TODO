@@ -1,0 +1,42 @@
+<html ng-app="todoapp">
+	<head>
+		<title>Using Angular JS Directives and Data Binding</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+		<script type="text/javascript" src="app.js"></script>
+		<script type="text/javascript" src="todoController.js"></script>
+		<script type="text/javascript" src="todoService.js"></script>
+		<link href="todoStyle.css" rel="stylesheet" type="text/css">
+	</head>
+
+	<body >
+		<div class="todoContainer" ng-controller="TodoController">
+			<h1>ToDo App</h1>
+			Search:
+			<br/>
+				<input placeholder="name" type="text" ng-model="searchtodobyname.name">
+				<input placeholder="status" type="text" ng-model="searchtodosbystatus.isDone">
+			<br/>
+				<input placeholder="object model" type="text" ng-model="searchallcolumns.$">
+				<input type="text" value="todoItem" data-ng-model="addtodo" placeholder="Add item to list..." />
+			<button ng-click="addTodo()">Add</button>
+
+			<div id="Total">
+         	<p>Total Todo(s): {{getTotalTodos()}}</p>
+         	<div id="unfinishedTodos">
+         	<p>Unfinished Todos: {{getTotalTodos() - getTotalCheckedTodos()}}</p>
+         	<div id="doneTodos">
+         	<p>Done Todo(s): {{getTotalCheckedTodos()}}</p>
+
+			<ul>
+				<li data-ng-repeat="todo in todos | filter:name" ng-class="{crossTodo: todo.isDone}" >
+					<input type="checkbox" ng-click="toggleChecked(todo)" />
+					<input type="text"  value="{{ todo.name  }} - {{todo.isDone}}" />
+					<button ng-click="deleteTodo($index)">Delete</button>
+					<button ng-click="updateTodo($index,todo)">Save</button>
+				</li>
+				<!--Filters by the name properity that is in our model-->
+			</ul>
+			<br/>
+		</div>
+	</body>
+</html>
