@@ -36,7 +36,7 @@ angular.module("todoapp").service("TodoService",function todo($http, $q, $rootSc
 			defer.reject(err);
 		})
 
-		return defe.promise;
+		return defer.promise;
 	}
 	return todo;
 });
