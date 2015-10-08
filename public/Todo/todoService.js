@@ -70,4 +70,4 @@ angular.module('todoapp').service('TodoService', function todo($http, $q, endPoi
 	}
 
 	return TodoService;
-});
+}); 

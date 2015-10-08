@@ -4,10 +4,14 @@ function($routeProvider, $locationProvider) {
 		templateUrl : 'Todo/Views/editTodo.html'
 		//,controller:'editTodoController'
 	}).when('/addTodo', {
-		templateUrl : 'Todo/Views/addTodo.html'
-		//,controller:'addTodoController'
+		templateUrl : 'Todo/Views/addTodo.html',
+		controller:'addTodoController'
+	}).when('/error', {
+		templateUrl : 'Todo/Views/error.html'
+		//,controller:'errorController'
 	}).otherwise({
 		redirecTo : '/addTodo'
+		//,controller:'todoController'
 	});
 
 	//$locationProvider.html5Mode(true);

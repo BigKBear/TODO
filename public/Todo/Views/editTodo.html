@@ -1,2 +1,6 @@
-<h1>Edit todo </h1>
-<input type="text" value="todoItem" data-ng-model="edittodo" />
+<h4>Edit Todo </h4>
+<h3>Name:{{edittodo.name}}</h3><!--<input type="text" value="currentTodoName" data-ng-model="edit-todo-name" />-->
+<h3>Status:{{edittodo.isDone}}</h3><!--<input type="text" value="currentTodoStatus" data-ng-model="edit-todo-status" />-->
+<button ng-click="updateTodo($index,todo)">
+	Update
+</button>

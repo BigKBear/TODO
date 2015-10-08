@@ -5,23 +5,27 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
 		<script type="text/javascript" src="app.js"></script>
 		<script type="text/javascript" src="Todo/todoController.js"></script>
+
+		<script type="text/javascript" src="Todo/Controllers/editTodoController.js"></script>
+		<script type="text/javascript" src="Todo/Controllers/addTodoController.js"></script>
+		<script type="text/javascript" src="Todo/Controllers/errorController.js"></script>
+		<script type="text/javascript" src="Todo/Controllers/aboutController.js"></script>
 		<script type="text/javascript" src="Todo/todoService.js"></script>
 		<link href="todoStyle.css" rel="stylesheet" type="text/css">
 		<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>-->
 	</head>
 
 	<body >
+		<div ng-view></div>
 		<div class="todoContainer" ng-controller="TodoController">
 			<h1>ToDo App</h1>
-			Search:
+
 			<input type="text" value="todoItem" data-ng-model="addtodo" placeholder="Add item to list..." />
 			<button ng-click="addTodo()">
 				Add
 			</button>
 			<a href="/addTodo">Add</a>
 			<a href="/editTodo">Edit</a>
-			<div ng-view></div>
-
 			<div id="Total">
 				<p>
 					Total Todo(s): {{getTotalTodos()}}
@@ -51,5 +55,8 @@
 						</ul>
 						<br/>
 					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
