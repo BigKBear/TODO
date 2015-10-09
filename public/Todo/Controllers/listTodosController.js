@@ -16,6 +16,7 @@ angular.module("todoapp").controller('ListTodosController', function($scope, Tod
 	};
 
 	$scope.deleteTodo = function(todoId) {
+		console.log("Below is the todoID that will be passed to the delete function:\n");
 		console.log(todoId);
 		TodoService.deleteTodo(todoId);
 	};

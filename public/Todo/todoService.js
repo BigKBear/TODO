@@ -12,8 +12,8 @@ angular.module('todoapp').service('TodoService', function todo($http, $q, endPoi
 		$http.get(endPoint).success(function(todoData) {
 			//success
 			defer.resolve(todoData);
-			console.log(defer);
-			console.log(defer.todos);
+			console.log("The data that was pulled from the server: \n");
+			console.log(todoData);
 		}).error(function(err, status) {
 			//error
 			defer.reject(err);
@@ -43,9 +43,9 @@ angular.module('todoapp').service('TodoService', function todo($http, $q, endPoi
 	}
 
 	TodoService.deleteTodo = function(todoId) {
-		var defer = $q.defer();
-		console.log(todoId);
-		//console.log(defer.todos);
+		var defer = $q.defer(todoId);
+		console.log("ID passed to delete function good");
+		//console.log(defer.todos[todoId]);
 		console.log(defer);
 
 		$http.delete(endPoint+todoId,{
