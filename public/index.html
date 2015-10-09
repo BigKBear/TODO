@@ -4,59 +4,21 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
 		<script type="text/javascript" src="app.js"></script>
-		<script type="text/javascript" src="Todo/todoController.js"></script>
-
-		<script type="text/javascript" src="Todo/Controllers/editTodoController.js"></script>
-		<script type="text/javascript" src="Todo/Controllers/addTodoController.js"></script>
-		<script type="text/javascript" src="Todo/Controllers/errorController.js"></script>
-		<script type="text/javascript" src="Todo/Controllers/aboutController.js"></script>
 		<script type="text/javascript" src="Todo/todoService.js"></script>
-		<link href="todoStyle.css" rel="stylesheet" type="text/css">
+
+		<script type="text/javascript" src="Todo/todoController.js"></script>
 		<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>-->
+
+		<script type="text/javascript" src="Todo/Controllers/addTodoController.js"></script>
+		<script type="text/javascript" src="Todo/Controllers/editTodoController.js"></script>
+		<script type="text/javascript" src="Todo/Controllers/listTodosController.js"></script>
+		<script type="text/javascript" src="Todo/Controllers/showTodoController.js"></script>		
+		<link href="todoStyle.css" rel="stylesheet" type="text/css">
 	</head>
 
 	<body >
+		<h1>ToDo App</h1>
+		<a href="/todos">View All Todos</a>
 		<div ng-view></div>
-		<div class="todoContainer" ng-controller="TodoController">
-			<h1>ToDo App</h1>
-
-			<input type="text" value="todoItem" data-ng-model="addtodo" placeholder="Add item to list..." />
-			<button ng-click="addTodo()">
-				Add
-			</button>
-			<a href="/addTodo">Add</a>
-			<a href="/editTodo">Edit</a>
-			<div id="Total">
-				<p>
-					Total Todo(s): {{getTotalTodos()}}
-				</p>
-				<div id="unfinishedTodos">
-					<p>
-						Unfinished Todos: {{getTotalTodos() - getTotalCheckedTodos()}}
-					</p>
-					<div id="doneTodos">
-						<p>
-							Done Todo(s): {{getTotalCheckedTodos()}}
-						</p>
-
-						<ul>
-							<li data-ng-repeat="todo in todos | filter:name" ng-class="{crossTodo: todo.isDone}" >
-								<input type="checkbox" ng-click="toggleChecked(todo)" />
-								<input type="text"  value="{{ todo.name  }} - {{todo.isDone}}" />
-								<button ng-click="deleteTodo($index)">
-									Delete
-								</button>
-								<a href="/editTodo">Edit</a>
-								<button ng-click="updateTodo($index,todo)">
-									Save
-								</button>
-							</li>
-							<!--Filters by the name properity that is in our model-->
-						</ul>
-						<br/>
-					</div>
-				</div>
-			</div>
-		</div>
 	</body>
 </html>

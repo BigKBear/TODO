@@ -1,5 +1,4 @@
 //A service gets data and provides it for controllers
-
 angular.module('todoapp').service('TodoService', function todo($http, $q, endPoint) {
 	//angular constants OR value
 	//console.log(myConfig);
@@ -12,8 +11,9 @@ angular.module('todoapp').service('TodoService', function todo($http, $q, endPoi
 
 		$http.get(endPoint).success(function(todoData) {
 			//success
-			//TodoService.todoList = todoData;
 			defer.resolve(todoData);
+			console.log(defer);
+			console.log(defer.todos);
 		}).error(function(err, status) {
 			//error
 			defer.reject(err);
@@ -44,8 +44,13 @@ angular.module('todoapp').service('TodoService', function todo($http, $q, endPoi
 
 	TodoService.deleteTodo = function(todoId) {
 		var defer = $q.defer();
+		console.log(todoId);
+		//console.log(defer.todos);
+		console.log(defer);
 
-		$http.delete(endPoint + '/?_id', todoId).success(function(todoData) {
+		$http.delete(endPoint+todoId,{
+			_id : todoId
+		}).success(function(todoData) {
 			//success
 			defer.resolve(todoData);
 		}).error(function(err, status) {
@@ -60,7 +65,10 @@ angular.module('todoapp').service('TodoService', function todo($http, $q, endPoi
 		console.log($scope);
 		console.log(olddata);
 		console.log($scope.todos[todoId].olddata);
-		$http.put(endPoint + '/{', TodoService, +'}').success(function(todoData) {
+		$http.put(endPoint, {
+			_id : $scope.todos[todoId],
+			name : TodoService.addtodo
+		}).success(function(todoData) {
 			//success
 			defer.resolve(todoData);
 		}).error(function(err, status) {
@@ -70,4 +78,4 @@ angular.module('todoapp').service('TodoService', function todo($http, $q, endPoi
 	}
 
 	return TodoService;
-}); 
+});

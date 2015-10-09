@@ -6,7 +6,4 @@ angular.module("todoapp").controller('EditTodoController', function($scope, Todo
 
 	});
 
-	$scope.editTodo = function(todo) {
-
-	}
-});
+}); 

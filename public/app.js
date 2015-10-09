@@ -1,17 +1,27 @@
 var todoapp = angular.module("todoapp", ['ngRoute']).config(['$routeProvider', '$locationProvider',
 function($routeProvider, $locationProvider) {
-	$routeProvider.when('/editTodo', {
-		templateUrl : 'Todo/Views/editTodo.html'
-		//,controller:'editTodoController'
-	}).when('/addTodo', {
+	$routeProvider.when('/todos/add', {
 		templateUrl : 'Todo/Views/addTodo.html',
-		controller:'addTodoController'
-	}).when('/error', {
-		templateUrl : 'Todo/Views/error.html'
-		//,controller:'errorController'
-	}).otherwise({
-		redirecTo : '/addTodo'
-		//,controller:'todoController'
+		controller : 'AddTodoController'
+	});
+
+	$routeProvider.when('/todos/:id/edit', {
+		templateUrl : 'Todo/Views/editTodo.html',
+		controller : 'EditTodoController'
+	});
+
+	$routeProvider.when('/todos/:id', {
+		templateUrl : 'Todo/Views/showTodo.html',
+		controller : 'ShowTodoController'
+	});
+
+	$routeProvider.when('/todos', {
+		templateUrl : 'Todo/Views/listTodos.html',
+		controller : 'ListTodosController'
+	});
+
+	$routeProvider.otherwise({
+		redirecTo : '/todos'
 	});
 
 	//$locationProvider.html5Mode(true);
@@ -22,7 +32,13 @@ function($routeProvider, $locationProvider) {
 
 }]).value("endPoint", "https://sheltered-shore-4406.herokuapp.com/api/todos/")
 
-/*.constant("myConfig",{
+/*
+
+ $routeProvider.when('/error', {
+ templateUrl : 'Todo/Views/error.html'
+ });
+
+ .constant("myConfig",{
  "url": "https://sheltered-shore-4406.herokuapp.com/api/todos/"
  })
 
