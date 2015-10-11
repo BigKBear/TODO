@@ -2,7 +2,10 @@
 <h3>Name:
 <input type="text" value="todoItem"  data-ng-model="todoName" placeholder="Add item to list..." />
 </h3>
-<button ng-click="addTodo(todoName)">
+<h3>Status:
+<input type="text" value="todoItem"  data-ng-model="todoStatus" placeholder="Add item to list..." />
+</h3>
+<button ng-click="addTodo(todoName,todoStatus)">
 	Add
 </button>
 

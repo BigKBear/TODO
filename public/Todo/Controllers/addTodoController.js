@@ -1,7 +1,7 @@
 angular.module("todoapp").controller('AddTodoController', function($scope, TodoService) {
 
-	$scope.addTodo = function(todoName) {
-		TodoService.addTodo(todoName).then(function(resp) {
+	$scope.addTodo = function(todoName,todoStatus) {
+		TodoService.addTodo(todoName,todoStatus).then(function(resp) {
 
 		}, function(err) {
 

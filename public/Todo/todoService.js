@@ -39,17 +39,19 @@ angular.module('todoapp').service('TodoService', function todo($http, $q, endPoi
 
 	}
 
-	TodoService.addTodo = function(todoName) {
-		var deferred = $q.defer();
+	TodoService.addTodo = function(todoName,todoStatus) {
+		var deferred = $q.defer(todoName,todoStatus);
 
-		console.log(deferred);
+		//console.log(deferred);
 		console.log(todoName);
+		console.log(todoStatus);
 		//console.log(TodoService.addtodo);
 		$http.post(endPoint, {
-			name : todoName
+			name : todoName,
+			isDone: todoStatus
 		}).success(function(todoData) {
 			//success
-			console.log("Data saved good:" + todoName + " added to end point");
+			console.log("Data saved good: " + todoName + " was added to end point with status " + todoStatus);
 			deferred.resolve(todoData);
 		}).error(function(err, status) {
 			//error
