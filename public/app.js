@@ -24,11 +24,11 @@ function($routeProvider, $locationProvider) {
 		redirecTo : '/todos'
 	});
 
-	//$locationProvider.html5Mode(true);
-	$locationProvider.html5Mode({
-		enabled : true,
-		requireBase : false
-	});
+	// $locationProvider.html5Mode(true);
+	// $locationProvider.html5Mode({
+	// 	enabled : true,
+	// 	requireBase : false
+	// });
 
 }]).value("endPoint", "https://sheltered-shore-4406.herokuapp.com/api/todos/")
 

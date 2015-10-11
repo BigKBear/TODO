@@ -1,6 +1,6 @@
-angular.module("todoapp").controller('EditTodoController', function($scope, TodoService) {
+angular.module("todoapp").controller('ShowTodoController', function($scope, TodoService) {
 
-	TodoService.getTodo($routeParams.id).then(function(todoData) {
+	TodoService.getTodo(todo._id).then(function(todoData) {
 		$scope.todo = todoData;
 	}, function(err) {
 

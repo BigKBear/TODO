@@ -7,7 +7,7 @@ angular.module("todoapp").controller('ListTodosController', function($scope, Tod
 	});
 
 	$scope.getTotalTodos = function() {
-		//TodoService.getAllTodos();
+		
 	};
 
 	
@@ -20,4 +20,18 @@ angular.module("todoapp").controller('ListTodosController', function($scope, Tod
 		console.log(todoId);
 		TodoService.deleteTodo(todoId);
 	};
+
+	$scope.getTodo = function(todoObjectforEditing){
+		TodoService.updateTodo(todoObjectforEditing);
+	};
+
+	$scope.showTodo = function(todoToShow)	 {
+		TodoService.getTodo(todoToShow);	
+	};
+
 }); 
+/*
+console.log(todoObjectforEditing);
+		console.log(todoObjectforEditing._id);
+		console.log(todoObjectforEditing.name);
+		console.log(todoObjectforEditing.__v);*/

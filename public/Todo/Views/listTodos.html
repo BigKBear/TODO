@@ -12,12 +12,19 @@
 
 		<ul>
 			<li data-ng-repeat="todo in todos | filter:name" ng-class="{crossTodo: todo.isDone}" >
+				<!-- TODO: Use the checkbox to alter and save the Todo isDone status (__v) -->
 				<input type="checkbox" ng-click="toggleChecked(todo)" />
 				<input type="text"  value="{{ todo.name  }} - {{todo.isDone}}" />
 				<button ng-click="deleteTodo(todo._id)">
 					Delete
 				</button>
-				<a  href="/todos/:id/edit">Edit</a>
+				<button ng-click="getTodo(todo)">
+					Edit
+				</button>
+				<button ng-click="showTodo(todo)">
+					Detail
+				</button>
+				<!-- TODO Find a way to let the buttons move to another page and have the ability to Edit and Show a selected Todo -->
 			</li>
 			<!--Filters by the name properity that is in our model-->
 		</ul>
