@@ -5,5 +5,4 @@ angular.module("todoapp").controller('ShowTodoController', function($scope, Todo
 	}, function(err) {
 
 	});
-
 }); 

@@ -7,12 +7,13 @@ angular.module("todoapp").controller('ListTodosController', function($scope, Tod
 	});
 
 	$scope.getTotalTodos = function() {
-		
+		$totalTodos = $scope.todos.length;
+		return $totalTodos;
 	};
 
 	
 	$scope.getTotalCheckedTodos = function() {
-		
+
 	};
 
 	$scope.deleteTodo = function(todoId) {
