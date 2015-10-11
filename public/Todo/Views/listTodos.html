@@ -15,14 +15,14 @@
 				<!-- TODO: Use the checkbox to alter and save the Todo isDone status (__v) -->
 				<input type="checkbox" ng-click="toggleChecked(todo)" />
 				<input type="text"  value="{{ todo.name  }} - {{todo.isDone}}" />
-				<button ng-click="deleteTodo(todo._id)">
-					Delete
-				</button>
 				<button ng-click="getTodo(todo)">
 					Edit
 				</button>
 				<button ng-click="showTodo(todo)">
-					Detail
+					Show
+				</button>
+				<button ng-click="deleteTodo(todo._id)">
+					Delete
 				</button>
 				<!-- TODO Find a way to let the buttons move to another page and have the ability to Edit and Show a selected Todo -->
 			</li>
