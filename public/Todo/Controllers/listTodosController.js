@@ -7,8 +7,9 @@ angular.module("todoapp").controller('ListTodosController', function($scope, Tod
 	});
 
 	$scope.getTotalTodos = function() {
-		$totalTodos = $scope.todos.length;
-		return $totalTodos;
+		//TODO: fix error "Below displays the total number of todos but with councel error"
+		//$totalTodos = $scope.todos.length;
+		//return $totalTodos;
 	};
 
 	
