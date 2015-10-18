@@ -25,11 +25,11 @@ angular.module('todoapp').service('TodoService', function todo($http, $q, endPoi
 	TodoService.getTodo = function(singleTodoId){
 		var defer = $q.defer(singleTodoId);
 
-		$http.get(endPoint+singleTodoId._id).success(function(todoData) {
+		$http.get(endPoint+singleTodoId).success(function(todoData) {
 			//success
 			defer.resolve(todoData);
-			console.log("Single todo that was pulled from the database: \n");
-			console.log(todoData);
+			/*console.log("Single todo that was pulled from the database: \n");
+			console.log(todoData);*/
 		}).error(function(err, status) {
 			//error
 			defer.reject(err);

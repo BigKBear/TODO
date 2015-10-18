@@ -1,14 +1,14 @@
 <ul>
 	<li data-ng-repeat="todo in todos | filter:name" ng-class="{crossTodo: todo.isDone}" >
-		<!-- TODO: Use the checkbox to alter and save the Todo isDone status (__v) -->
+		<!-- TODO: Use the checkbox to alter and save the Todo isDone status -->
 		<input type="checkbox" ng-click="toggleChecked(todo)" />
 		<input type="text"  value="{{ todo.name  }} - {{todo.isDone}}" />
-		<button ng-click="getTodo(todo)">
+		<button><a href="#/todos/{{todo._id}}/edit">
 			Edit
-		</button>
-		<button ng-click="showTodo(todo)">
+		</a></button>
+		<button><a href="#/todos/{{todo._id}}">
 			Show
-		</button>
+		</a></button>
 		<button ng-click="deleteTodo(todo._id)">
 			Delete
 		</button>

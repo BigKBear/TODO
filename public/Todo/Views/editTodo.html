@@ -1,8 +1,12 @@
 <h4>Edit Todo </h4>
 <h3>Name:</h3>
-<input type="text" value="todoItem" data-ng-model="editTodoName"  placeholder="Place the new name here..."/>
+<input type="text" value="{{ todos.name  }}"  />
 <h3>Status:</h3>
-<input type="text" value="todoItem" data-ng-model="editTodoStatus" placeholder="Place the updated status ..." />
-<button ng-click="save(editTodoName,editTodoStatus)">
+<input type="text" value="{{ todos.isDone  }}"   />
+<br/>
+<br/>
+<button ng-click="save(editTodoName, editTodoStatus)">
 	Update
 </button>
+<!-- data-ng-model="editTodoName" -->
+<!-- data-ng-model="editTodoStatus" -->

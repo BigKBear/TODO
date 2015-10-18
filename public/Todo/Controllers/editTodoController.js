@@ -1,7 +1,18 @@
-angular.module("todoapp").controller('EditTodoController', function($scope, TodoService) {
+angular.module("todoapp").controller('EditTodoController', function($scope,$routeParams, TodoService) {
+$scope.id = $routeParams.id;
 
-	$scope.getTodo = function(todoObjectforEditing){
-		TodoService.getTodo(todoObjectforEditing);
+TodoService.getTodo($scope.id).then(function(todosData) {
+		$scope.todos = todosData;
+		console.log("Single todo that was pulled from the database: \n");
+		console.log($scope.todos);
+		console.log($scope.todos.name);
+	}, function(err) {
+	});
+
+//console.log(TodoService.getTodo($scope.id));
+
+	$scope.getTodo = function(todoid){
+		TodoService.getTodo($scope.id);
 	};
 
 //ng-click="getTodo(todo._id)"
