@@ -78,16 +78,17 @@ angular.module('todoapp').service('TodoService', function todo($http, $q, endPoi
 		return defer.promise;
 	}
 
-	TodoService.updateTodo = function(oldData) {
-		var defer = $q.defer(oldData);
-		console.log("The old data to be updated is:\n");
-		console.log(oldData);
-		//console.log(newData);
+	TodoService.updateTodo = function(todoId,editTodoName,editTodoStatus) {
+		var defer = $q.defer(todoId,editTodoName,editTodoStatus);
+		console.log("The new data to be updated for "+todoId+"is: \n");
+		console.log(editTodoName +"  ");
+		console.log(editTodoStatus);
 
 		//TODO: Payload must have gotten the new data to be saved
-		$http.put(endPoint+oldData._id, {
-			_id : oldData._id,
-			name : oldData.name
+		$http.put(endPoint+todoId, {
+			_id : todoId,
+			name : editTodoName,
+			isDone : editTodoStatus
 		}).success(function(todoData) {
 			//success
 			defer.resolve(todoData);

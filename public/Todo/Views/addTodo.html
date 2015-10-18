@@ -3,8 +3,10 @@
 <input type="text" value="todoItem"  data-ng-model="todoName" placeholder="Add item to list..." />
 </h3>
 <h3>Status:
-<input type="text" value="todoItem"  data-ng-model="todoStatus" placeholder="Add item curent status..." />
+	<input type="checkbox" data-ng-model="checkboxModel.value1" >
+	<!-- {{checkboxModel.value1}} -->
+	<br/>
 </h3>
-<button ng-click="addTodo(todoName,todoStatus)">
+<button ng-click="addTodo(todoName,checkboxModel.value1)">
 	Add
 </button>

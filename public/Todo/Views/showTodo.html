@@ -1,0 +1,26 @@
+<h4>Here is your selected Todo </h4>
+<h3>Name:</h3>
+<input type="text" value="{{ todos.name  }}"  />
+<h3>Status:</h3>
+<button ng-click="todoDone('done')">
+			Done
+</button>
+<button ng-click="todoDone(todos.isDone)">
+			Not Done
+</button>
+<br/>
+<br/>
+<button >
+	<a href="#/todos">
+		Back
+	</a>
+</button>
+<button>
+	<a href="#/todos/{{todos._id}}/edit">
+		Edit
+	</a>
+</button>
+<button ng-click="deleteTodo(todo._id)">
+			Delete
+</button>
+

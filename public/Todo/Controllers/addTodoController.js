@@ -1,4 +1,16 @@
 angular.module("todoapp").controller('AddTodoController', function($scope, TodoService) {
+$scope.statuses=[
+{
+	name:true
+},
+{
+	name:false
+}];
+
+$scope.checkboxModel = {
+       value1 : false,
+       value2 : true
+     };
 
 	$scope.addTodo = function(todoName,todoStatus) {
 		TodoService.addTodo(todoName,todoStatus).then(function(resp) {

@@ -1,4 +1,4 @@
-angular.module("todoapp").controller('EditTodoController', function($scope,$routeParams, TodoService) {
+angular.module("todoapp").controller('EditTodoController', function($scope, $routeParams, TodoService) {
 $scope.id = $routeParams.id;
 
 TodoService.getTodo($scope.id).then(function(todosData) {
@@ -9,18 +9,19 @@ TodoService.getTodo($scope.id).then(function(todosData) {
 	}, function(err) {
 	});
 
-//console.log(TodoService.getTodo($scope.id));
-
-	$scope.getTodo = function(todoid){
-		TodoService.getTodo($scope.id);
-	};
-
-//ng-click="getTodo(todo._id)"
 	$scope.save = function(editTodoName,editTodoStatus) {
-		TodoService.updateTodo(editTodoName , editTodoStatus);
-	};
-
-	$scope.getTodo = function(todoObjectforEditing){
-		TodoService.updateTodo(todoObjectforEditing);
+		console.log($scope.todos.name);
+		if(editTodoName == null){
+			console.log("NO new name");
+			editTodoName = $scope.todos.name ;
+			TodoService.updateTodo($scope.id, editTodoName , editTodoStatus);
+		}else if(editTodoStatus == null){
+			console.log("NO new status");
+			editTodoStatus = $scope.todos.isDone;
+			TodoService.updateTodo($scope.id, editTodoName , editTodoStatus);
+		}
+		else{
+			TodoService.updateTodo($scope.id, editTodoName , editTodoStatus);
+		}
 	};
 });
