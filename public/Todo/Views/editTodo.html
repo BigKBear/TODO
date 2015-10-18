@@ -1,0 +1,19 @@
+<h4>Edit Todo </h4>
+<h3>Name:</h3>
+<input type="text" value="{{ todos.name  }}"  />
+<br/>
+<input type="text" data-ng-model="updatedTodoName" placeholder="Add modified name..." />
+<h3>Status:</h3>
+<input type="text" value="{{ todos.isDone  }}"   />
+<br/>
+<input type="text" data-ng-model="updatedTodoStatus" placeholder="Add modified status..." />
+<br/>
+<br/>
+<button >
+	<a href="#/todos">Back</a>
+</button>
+<button ng-click="save(updatedTodoName, updatedTodoStatus)">
+	Update
+</button>
+<!-- data-ng-model="editTodoName" -->
+<!-- data-ng-model="editTodoStatus" -->
